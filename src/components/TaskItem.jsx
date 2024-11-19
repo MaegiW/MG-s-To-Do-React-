@@ -1,17 +1,19 @@
 import PropTypes from "prop-types";
 
-const TaskItem = ({
-  task,
-  index,
-  deleteTask,
-  toggleComplete,
-  startEditTask,
-  saveTask,
-  isEditing,
-  editingText,
-  setEditingText,
-  cancelEdit,
-}) => {
+function TaskItem(props) {
+  const {
+    task,
+    index,
+    deleteTask,
+    toggleComplete,
+    startEditTask,
+    saveTask,
+    isEditing,
+    editingText,
+    setEditingText,
+    cancelEdit,
+  } = props;
+
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       saveTask(editingText);
@@ -32,13 +34,13 @@ const TaskItem = ({
             onKeyDown={handleKeyPress}
           />
           <button
-            className="mr-2 border border-gray-300 rounded py-2 px-4 hover:bg-blue-500 hover:text-white"
+            className="mr-2 border border-gray-300 rounded py-2 px-4 hover:bg-green-500 hover:text-white"
             onClick={() => saveTask(editingText)}
           >
             保存
           </button>
           <button
-            className="mr-2 border border-gray-300 rounded py-2 px-4 hover:bg-blue-500 hover:text-white"
+            className="mr-2 border border-gray-300 rounded py-2 px-4 hover:bg-red-500 hover:text-white"
             onClick={cancelEdit}
           >
             取消
@@ -63,13 +65,13 @@ const TaskItem = ({
             {task.completed ? "未完成" : "完成"}
           </button>
           <button
-            className="mr-2 border border-gray-300 rounded py-2 px-4 hover:bg-blue-500 hover:text-white"
+            className="mr-2 border border-gray-300 rounded py-2 px-4 hover:bg-green-500 hover:text-white"
             onClick={() => startEditTask(index)}
           >
             修改
           </button>
           <button
-            className="mr-2 border border-gray-300 rounded py-2 px-4 hover:bg-blue-500 hover:text-white"
+            className="mr-2 border border-gray-300 rounded py-2 px-4 hover:bg-red-500 hover:text-white"
             onClick={() => deleteTask(index)}
           >
             刪除
@@ -78,7 +80,7 @@ const TaskItem = ({
       )}
     </li>
   );
-};
+}
 
 // 添加 PropTypes
 TaskItem.propTypes = {

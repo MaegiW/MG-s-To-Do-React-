@@ -1,7 +1,8 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-const TaskInput = ({ addTask }) => {
+function TaskInput(props) {
+  const { addTask } = props;
   const [taskText, setTaskText] = useState("");
 
   const handleAddTask = () => {
@@ -24,7 +25,7 @@ const TaskInput = ({ addTask }) => {
         type="text"
         value={taskText}
         onChange={(e) => setTaskText(e.target.value)}
-        onKeyDown={handleKeyPress} // 新增鍵盤事件
+        onKeyDown={handleKeyPress} // 按下Enter鍵
         placeholder="輸入新的任務"
       />
       <button
@@ -35,8 +36,7 @@ const TaskInput = ({ addTask }) => {
       </button>
     </div>
   );
-};
-
+}
 // 定義 PropTypes
 TaskInput.propTypes = {
   addTask: PropTypes.func.isRequired, // addTask 必須是函數且為必填

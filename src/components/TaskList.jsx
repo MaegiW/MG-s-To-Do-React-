@@ -1,17 +1,19 @@
 import TaskItem from "./TaskItem";
 import PropTypes from "prop-types";
 
-const TaskList = ({
-  tasks,
-  deleteTask,
-  toggleComplete,
-  startEditTask,
-  saveTask,
-  editingIndex,
-  editingText,
-  setEditingText,
-  cancelEdit,
-}) => {
+function TaskList(props) {
+  const {
+    tasks,
+    deleteTask,
+    toggleComplete,
+    startEditTask,
+    saveTask,
+    editingIndex,
+    editingText,
+    setEditingText,
+    cancelEdit,
+  } = props;
+
   return (
     <ul>
       {tasks.map((task, index) => (
@@ -31,7 +33,7 @@ const TaskList = ({
       ))}
     </ul>
   );
-};
+}
 
 // 添加 PropTypes
 TaskList.propTypes = {
