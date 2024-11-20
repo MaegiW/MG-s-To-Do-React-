@@ -2,8 +2,9 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 
 function TaskInput(props) {
+  // 定義 TaskInput 函式元件，接收屬性 props
   const { addTask } = props;
-  const [taskText, setTaskText] = useState("");
+  const [taskText, setTaskText] = useState(""); // 定義 taskText 狀態存儲
 
   const handleAddTask = () => {
     if (taskText.trim()) {
@@ -20,6 +21,7 @@ function TaskInput(props) {
 
   return (
     <div>
+      {/* 輸入框，用於輸入新的任務文字 */}
       <input
         className="border border-gray-300 rounded py-2 px-4 mr-2"
         type="text"
@@ -30,9 +32,9 @@ function TaskInput(props) {
       />
       <button
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        onClick={handleAddTask}
+        onClick={handleAddTask} // 點擊按鈕時執行新增任務
       >
-        新增
+        +新增
       </button>
     </div>
   );
